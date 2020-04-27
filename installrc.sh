@@ -1,13 +1,13 @@
 # KQuickRC Installation Script
 # Setup Functions
-root-base () {
+setasrootbase () {
   [ "$UID" -eq 0 ] || exec sudo bash "$0" "$@"
   mkdir /.quickrc-config
   mv ./quickrc.sh /.quickrc-config/quickrc.sh
   echo "sh /.quickrc-config/quickrc.sh" >> ~/.bashrc
 }
 
-home-base () {
+setashomebase () {
   mkdir ~/.quickrc-config
   mv ./quickrc.sh ~/.quickrc.sh
   echo "sh ~/.quickrc.sh" >> ~/.bashrc
@@ -16,16 +16,16 @@ home-base () {
 # Setup Root Base
 if [ $# -gt 0 ]; then
   if [ "$1" = "-rb" || "$1" = "--root-base"]; then
-    root-base
-  elif [ "$1" = "-hb" || "$1" = "--home-base"]; then 
-    home-base
+    setashomebase
+  elif [ "$1" = "-hb" || "$1" = "--home-base"]; then
+    setashomebase
   fi
 else
   echo "Would you like to add a root base? [Y/n]"
-  read -p ": " answer
+  read - p ": " answer
   if [ "$answer" = "y" || "$answer" = "Y" ]; then
-    root-base
+    setashomebase
   else
-    home-base
+    setashomebase
   fi
 fi
