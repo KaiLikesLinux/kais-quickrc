@@ -5,10 +5,10 @@ mv ./quickrc.sh ~/.quickrc.sh
 echo "sh ~/.quickrc.sh" >> ~/.bashrc
 
 # Setup Root Base
-if [ $# -lt 0 ]; then
+if [ $# -gt 0 ]; then
   if [ "$1" = "-rb" ||"$1" = "--root-base"]; then
     # More Scrpit
-  else
+  elif
     # More Script
   fi
 else
