@@ -1,4 +1,5 @@
 # KQuickRC Installation Script
+[ "$UID" -eq 0 ] || exec sudo bash "$0" "$@"
 
 # Move this:
 mv ./quickrc.sh ~/.quickrc.sh
